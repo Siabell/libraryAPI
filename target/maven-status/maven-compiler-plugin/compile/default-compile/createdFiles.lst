@@ -1,0 +1,5 @@
+edu\eci\arsw\libraryAPI\model\Libreria.class
+edu\eci\arsw\libraryAPI\services\LibraryServices.class
+edu\eci\arsw\libraryAPI\LibraryApiApplication.class
+edu\eci\arsw\libraryAPI\controller\LibraryRestController.class
+edu\eci\arsw\libraryAPI\model\Libro.class

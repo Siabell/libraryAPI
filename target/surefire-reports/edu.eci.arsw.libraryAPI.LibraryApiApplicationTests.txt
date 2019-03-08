@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+Test set: edu.eci.arsw.libraryAPI.LibraryApiApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 13.97 s <<< FAILURE! - in edu.eci.arsw.libraryAPI.LibraryApiApplicationTests
+contextLoads(edu.eci.arsw.libraryAPI.LibraryApiApplicationTests)  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'libraryRestController' method 
+public org.springframework.http.ResponseEntity<?> edu.eci.arsw.libraryAPI.controller.LibraryRestController.recursoPOSTLibrary(edu.eci.arsw.libraryAPI.model.Libreria,java.lang.String)
+to {[/libraries/{name}],methods=[POST]}: There is already 'libraryRestController' bean method
+public org.springframework.http.ResponseEntity<?> edu.eci.arsw.libraryAPI.controller.LibraryRestController.recursoPOSTLibroAUnaLibreria(edu.eci.arsw.libraryAPI.model.Libro,java.lang.String) mapped.
+Caused by: java.lang.IllegalStateException: 
+Ambiguous mapping. Cannot map 'libraryRestController' method 
+public org.springframework.http.ResponseEntity<?> edu.eci.arsw.libraryAPI.controller.LibraryRestController.recursoPOSTLibrary(edu.eci.arsw.libraryAPI.model.Libreria,java.lang.String)
+to {[/libraries/{name}],methods=[POST]}: There is already 'libraryRestController' bean method
+public org.springframework.http.ResponseEntity<?> edu.eci.arsw.libraryAPI.controller.LibraryRestController.recursoPOSTLibroAUnaLibreria(edu.eci.arsw.libraryAPI.model.Libro,java.lang.String) mapped.
+
