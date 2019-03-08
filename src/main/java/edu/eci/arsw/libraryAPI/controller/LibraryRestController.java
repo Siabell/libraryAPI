@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
+@Service
 public class LibraryRestController {
     
     @Autowired
@@ -54,8 +56,8 @@ public class LibraryRestController {
         }
     }
     
-    @RequestMapping(method = RequestMethod.POST, value = "/libraries/{name}")
-    public ResponseEntity<?> recursoPOSTLibrary(@RequestBody Libreria lib, @PathVariable String name) {
+    @RequestMapping(method = RequestMethod.POST, value = "/libraries")
+    public ResponseEntity<?> recursoPOSTLibrary(@RequestBody Libreria lib) {
         try {
             lbs.crearLibreria(lib);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
@@ -67,10 +69,10 @@ public class LibraryRestController {
     
     
     @RequestMapping(method = RequestMethod.POST, value = "/libraries/{name}")
-    public ResponseEntity<?> recursoPOSTLibroAUnaLibreria(@RequestBody Libro lib, @PathVariable String name) {
+    public ResponseEntity<?> recursoPOSTLibroAUnaLibreria(@RequestBody Libro lib, @PathVariable int name) {
         try {
             
-            //lbs.agregarLibro(lib,);
+           lbs.agregarLibro(name, lib);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             Logger.getLogger(LibraryRestController.class.getName()).log(Level.SEVERE, null, ex);

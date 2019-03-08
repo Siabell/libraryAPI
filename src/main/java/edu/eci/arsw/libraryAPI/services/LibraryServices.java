@@ -50,10 +50,12 @@ public class LibraryServices {
     
     
     public void crearLibreria(Libreria lib) throws Exception{
+    	
         if (librerias.containsKey(lib.getId())){
             throw new Exception("La libreria" + lib.getNombre()+ " identificada con "+lib.getId()+" ya existe.");
         } else {
             librerias.put(lib.getId(), lib);
+            libreriasN.put(lib.getNombre(), lib);
         }
         
     }
@@ -67,12 +69,15 @@ public class LibraryServices {
     }
     */
     
-    public void agregarLibro (Libreria lib, Libro libro) throws Exception{
-        for (Libro libroOcupado : lib.getLibros()) {
+    public void agregarLibro (int lib, Libro libro) throws Exception{
+    	Libreria liberia = librerias.get(lib);
+        for (Libro libroOcupado : liberia.getLibros()) {
             if (libroOcupado.getId() == libro.getId()){
                 throw new Exception("El libro ya existe en esta libreria");
             }
         }
+        liberia.nuevoLibro(libro);
+        
     }
     
     

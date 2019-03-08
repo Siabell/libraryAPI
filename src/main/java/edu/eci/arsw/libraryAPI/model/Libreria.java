@@ -70,6 +70,8 @@ public class Libreria {
         this.libros = libros;
     }
 
-    
+    public void nuevoLibro(Libro libro) {
+    	this.libros.add(libro);
+    }
     
 }
